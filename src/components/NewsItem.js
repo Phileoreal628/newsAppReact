@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 
+
 export default class NewsItem extends Component {
+
+   
     render() {
+        let {title,description,imageUrl,url} = this.props;
         return (
             <>
-                <div className="w-1/5 mx-auto overflow-hidden bg-white rounded-lg shadow-lg my-6">
-                <img className="object-cover w-full h-48 mt-2" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80" alt="NIKE AIR" />
-
-                    <div className="px-4 py-2">
-                        <h1 className="text-3xl font-bold text-gray-800 uppercase">NIKE AIR</h1>
-                        <p className="mt-1 text-sm text-gray-600 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus</p>
+           
+                <div className="card my-3 mx-2"  style={{width: "18rem"}}>
+                    <div className="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                        <img style = {{height:"10rem"}}src={imageUrl?imageUrl:"https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I="} className="img-fluid" />
+                        <a href="#!">
+                            <div className="mask mx-2" style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
+                        </a>
                     </div>
-
-                        <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
-                            <button className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Read More</button>
-                        </div>
-                    
-                        
+                    <div className="card-body">
+                        <h5 className="card-title mb-2 text-muted">{title ?title.slice(0,50)+"..." : ""}</h5>
+                        <p className="card-text">{description ? description.slice(0,90)+"..." : ""}</p>
+                        <a href={url} target="_blank" className="btn btn-sm btn-primary">Read More</a>
+                    </div>
                 </div>
             </>
         )
