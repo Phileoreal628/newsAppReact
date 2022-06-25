@@ -68,10 +68,10 @@ export default class News extends Component {
     }
     async componentDidMount() {
 
-        // let article = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=c6fe7687951f4619ab4ecbce80e8d714");
-        // let data = await article.json();
-        // console.log(data);
-        // this.setState({articles:data.articles});
+        let article = await fetch("https://newsapi.org/v2/top-headlines?country=in&apiKey=c6fe7687951f4619ab4ecbce80e8d714");
+        let data = await article.json();
+        console.log(data);
+        this.setState({articles:data.articles});
 
     }
 
